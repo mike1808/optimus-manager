@@ -146,7 +146,7 @@ def _unload_nvidia_modules():
     try:
         exec_bash("modprobe -r nvidia_drm nvidia_modeset nvidia_uvm nvidia")
     except BashError as e:
-        raise KernelSetupError("Cannot unload Nvidia modules : %s" % str(e))
+        print(e)
 
 def _load_nouveau(config):
 
@@ -166,7 +166,7 @@ def _unload_nouveau():
     try:
         exec_bash("modprobe -r nouveau")
     except BashError as e:
-        raise KernelSetupError("Cannot unload nouveau : %s" % str(e))
+        print(e)
 
 def _load_bbswitch():
 
@@ -186,7 +186,7 @@ def _unload_bbswitch():
     try:
         exec_bash("modprobe -r bbswitch")
     except BashError as e:
-        raise KernelSetupError("Cannot unload bbswitch : %s" % str(e))
+        print(e)
 
 def _load_acpi_call():
 
